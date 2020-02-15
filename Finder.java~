@@ -1,0 +1,45 @@
+import java.util.*;
+class Finder
+{
+    String st;
+    int up,sm;
+    int len;
+    Finder()
+    {
+        st="";
+        up=0;
+        sm=0;
+        len=0;
+    }
+    void readStr()
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a String");
+        st=sc.nextLine();
+    }
+    void recLetters(int n)
+    {
+        if (n==len-1)
+            return;
+        if (Character.isUpperCase(st.charAt(n))==true)
+            up++;
+        else if (Character.isLowerCase(st.charAt(n))==true)
+            sm++;
+        recLetters(n+1);
+    }
+    void Print()
+    {
+        System.out.println("Original String : "+st);
+        len=st.length();
+        recLetters(0);
+        System.out.println("Lower Case letters : "+sm);
+        System.out.println("Upper Case letters : "+up);
+    }
+    static void main()
+    {
+        Finder obj=new Finder();
+        obj.readStr();
+        obj.Print();
+    }
+}
+        
